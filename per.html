@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+<style>
+    body{
+        background: lightblue;
+    }
+    table{
+        margin: 0 auto;
+        text-align: center;
+    }
+    form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+</style>
+<script type = "text/javascript">
+    function calc()
+    {
+        var m1,m2,m3,avg = 0,total = 0, result = "",grade = "";
+        m1 = parseInt(document.form1.wp.value);
+        m2 = parseInt(document.form1.sp.value);
+        m3 = parseInt(document.form1.cg.value);
+        total = m1+m2+m3;
+        avg = total/3;
+        if( m1 < 35 || m2 < 35 || m3 < 35)
+        {
+            result = "fail";
+            grade = "D";
+        }
+        else if(avg >= 75)
+        {
+            result = "Distinction";
+            grade = "A+";
+        }
+        else if(avg >= 60 && avg < 75)
+        {
+            result = "First class";
+            grade = "A";
+        }
+        else if(avg >= 50 && avg < 60)
+        {
+            result = "Second class";
+            grade = "B";
+        }
+        else if(avg >=35 && avg < 50)
+        {
+            result = "Pass class";
+            grade = "C";
+        }
+        else  if (avg < 35)
+        {
+            result = "Fail";
+            Grade = "D";
+        }
+        document.form1.result.value = result;
+        document.form1.grade.value = grade;
+        document.form1.total.value = total;
+        document.form1.average.value = avg;
+       
+    }
+
+    function formValidation() {
+    // Make quick references to our fields.
+    var firstname = document.getElementById('firstname');
+    var rollnumber =document.getElementById('rollnumber');
+   
+
+    // To check empty form fields.
+    if (firstname.value.length == 0) {
+        document.getElementById('head').innerText = "* All fields are mandatory *"; // This segment displays the validation rule for all fields
+        firstname.focus();
+        return false;
+        }
+           // Check each input in the order that it appears in the form.
+        if (inputAlphabet(firstname, "* For your name please use alphabets only *")) {
+            if (textAlphanumeric(rollnumber, "* For Roll Number please use numbers and letters *")) {
+            return true;
+        }
+    }
+        return false;
+// Function that checks whether input text is an alphabetic character or not.
+function inputAlphabet(inputtext, alertMsg) {
+    var alphaExp = /^[a-zA-Z ]+$/;
+    if (inputtext.value.match(alphaExp)) {
+    return true;
+    } else {
+    document.getElementById('p1').innerText = alertMsg; // This segment displays the validation rule for name.
+    //alert(alertMsg);
+    inputtext.focus();
+    return false;
+    }
+    }
+   // Function that checks whether input text includes alphabetic and numeric characters.
+   function textAlphanumeric(inputtext, alertMsg) {
+    var alphaExp = /^[0-9A-Z]+$/;
+    if (inputtext.value.match(alphaExp)) {
+    return true;
+    } else {
+    document.getElementById('p2').innerText = alertMsg; // This segment displays the validation rule for address.
+    inputtext.focus();
+    return false;
+    }
+    }
+}
+</script>
+</head>
+<body>
+   <form name = "form1">
+        <table border = "1">
+            
+            <tr>
+                <td colspan = "2" align = "center">Subject Marks</td>
+            </tr>
+            <tr>
+                <td>Web Programming</td>
+                <td><input type = "text" name = "wp" value="40"/></td>
+            </tr>
+            <tr>
+                <td>Computer Graphics</td>
+                <td><input type = "text" name = "cg" value="50" /></td>
+            </tr>
+            <tr>
+                <td>System Programming</td>
+                <td><input type = "text" name = "sp" value="70"/></td>
+
+            </tr>
+            <tr>
+                <td colspan = "2" align = "center"><input type = "button"   onclick = "calc()" value = "calculte" /></td>
+            </tr>           
+            <tr>
+                <td>Total</td>
+                <td><input type = "text" name = "total"/></td>
+
+            </tr>
+            <tr>
+                <td>Average</td>
+                <td><input type = "text" name = "average" /></td>
+            </tr>
+            <tr>
+                <td>Result</td>
+                <td><input type = "text" name = "result" /></td>
+            </tr>
+            <tr>
+                <td>Grade</td>
+                <td><input type = "text" name = "grade"/></td>
+            </tr>
+
+        </table>
+    </form>
+    
+</body>
+</html>

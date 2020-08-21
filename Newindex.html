@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="new.js"></script>
+</head>
+<body>
+    <div id="form">
+        <p id="head"></p>
+        <!-- This segment displays the validation rule -->
+        <h2>JavaScript Form Validation</h2>
+        <!-- Form starts from here -->
+        <form onsubmit='return formValidation()' name="form1">
+            <label>Full Name:</label>
+            <input id='firstname' type='text'>
+            <p id="p1"></p>
+            <!-- This segment displays the validation rule for name -->
+            <label>Roll Number:</label>
+            <input id='rollnumber' type='text'>
+            <p id="p2"></p>  
+            <!-- This segment displays the validation rule for roll number -->
+            <label>Subject and Marks</label> 
+                <br><br>
+                Subject :<input type="text" name="subject" id="subject"><br><br>
+                 Out Of :<select type="text" value="" name="outofmarks" id="outofmarks"> 
+                              <option>50</option> 
+                             <option>100</option>        
+                         </select><br>
+                         <br>
+                Obtained Marks :<input type="text" id="obtainedmarks">
+                <br>
+                <br>
+                <table id="table" border="1">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Out Of</th>
+                        <th>Marks Obtained</th>
+                       
+                    </tr>
+            
+                    <tr>
+                        <td>Web Programming</td>
+                        <td><input type = "text" name = "wb"  value ="50"/></td>
+                        <td><input type = "text" name = "wb_obtainedmarks"  value ="50"/></td>
+                       
+                    </tr>
+            
+                    <tr>
+                        <td>Computer Graphics</td>
+                        <td><input type = "text" name = "cg" value="100" /></td>
+                        <td><input type = "text" name = "cg_obtainedmarks"  value ="80"/></td>
+                       
+                    </tr>
+                    <tr>
+                        <td>System Programming</td>
+                        <td><input type = "text" name = "sp" value="50" /></td>
+                        <td><input type = "text" name = "sp_obtainedmarks"  value ="50"/></td>
+                       
+                    </tr>
+                
+                </table>
+                   <br><br>
+
+                   School/College Name : <input type="text" name="college-name" id="college-name">
+                   <br><br>
+                   Board/University: <input type="text" name="university-name" id="university-name">
+                   <br><br>
+                   Academic Year :<input type="text" name="academic-year" id="academic-year">
+                   <br><br>
+                  Class :<input type="text" name="class-name" id="class-name">
+                  <br><br>
+                <INPUT type="button" value="Add Row" onclick="addHtmlTableRow()" />
+            
+                <INPUT type="button" value="Delete Row" onclick="removeSelectedRow()" />
+               
+        <!-- This segment displays the validation rule for zip -->
+        <input id="submit" type='submit' value='Check Form'>
+        <button onclick="btnClicked()">next</button>
+        </form>
+        </div>
+        
+</body>
+</html>
